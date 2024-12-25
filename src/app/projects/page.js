@@ -33,6 +33,13 @@ export default function Projects() {
       imageUrl: '/images/projects/maths.png',
       link: 'https://maths-solver-1.onrender.com/'
     },
+    {
+      id: 5,
+      name: 'Shivu Store',
+      description: 'A simple Ecomm Website',
+      imageUrl: '/images/projects/shivustore.png',
+      link: 'https://shivustore.netlify.app/'
+    },
     // Add more projects as needed
   ];
 
