@@ -40,6 +40,13 @@ export default function Projects() {
       imageUrl: '/images/projects/shivustore.png',
       link: 'https://shivustore.netlify.app/'
     },
+    {
+      id: 6,
+      name: 'Portfolio-React',
+      description: 'Portfolio using React.js',
+      imageUrl: '/images/projects/Port-React.png',
+      link: 'https://shivamkoli-engg.netlify.app/'
+    },
     // Add more projects as needed
   ];
 

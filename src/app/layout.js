@@ -1,5 +1,10 @@
 'use client';
 
+import React from 'react';
+import { FaInstagram, FaTwitter, FaGithub, FaLinkedin } from 'react-icons/fa';
+import Image from 'next/image';
+
+
 export default function Layout({ children }) {
   return (
     <>
@@ -46,10 +51,55 @@ export default function Layout({ children }) {
               </nav>
             </header>
             <main style={mainStyle}>{children}</main>
-            <footer style={footerStyle}>
-              <p>&copy; 2024-25 ShivamKoli</p>
-            </footer>
           </div>
+
+          {/* Footer */}
+          <footer style={footerStyle}>
+            <div style={footerContainerStyle}>
+              
+
+              {/* Footer Description */}
+              <div>
+                <p>&copy; 2024 ShivamKoli. All rights reserved.</p>
+              </div>
+
+              {/* Social Media Links */}
+              <div style={socialMediaStyle}>
+                <a
+                  href="https://www.instagram.com/shivamkoli.tech/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={socialLinkStyle}
+                >
+                  <FaInstagram />
+                </a>
+                <a
+                  href="https://x.com/DevOpsShivam"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={socialLinkStyle}
+                >
+                  <FaTwitter />
+                </a>
+                <a
+                  href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={socialLinkStyle}
+                >
+                  <FaLinkedin />
+                </a>
+                <a
+                  href="https://github.com/shivam7053"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={socialLinkStyle}
+                >
+                  <FaGithub />
+                </a>
+              </div>
+            </div>
+          </footer>
         </body>
       </html>
     </>
@@ -60,7 +110,7 @@ const bodyStyle = {
   margin: 0,
   padding: 0,
   fontFamily: 'Arial, sans-serif',
-  height: '100%', // Full height for body
+  height: '100%',
 };
 
 const videoContainerStyle = {
@@ -88,13 +138,13 @@ const contentOverlayStyle = {
 };
 
 const headerStyle = {
-  backgroundColor: 'rgba(14, 25, 158, 0.7)', // Semi-transparent header
+  backgroundColor: 'rgba(14, 25, 158, 0.7)',
   padding: '10px 20px',
   color: '#fff',
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  position: 'sticky', // Keeps header at the top during scrolling
+  position: 'sticky',
   top: 0,
   zIndex: 2,
 };
@@ -112,8 +162,28 @@ const mainStyle = {
 
 const footerStyle = {
   textAlign: 'center',
-  padding: '10px',
-  backgroundColor: 'rgba(14, 25, 158, 0.7)', // Semi-transparent footer
+  backgroundColor: 'rgba(14, 25, 158, 0.7)',
   color: '#fff',
-  marginTop: 'auto', // Push footer to the bottom
+  padding: '20px 0',
+};
+
+const footerContainerStyle = {
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  padding: '0 20px',
+  flexWrap: 'wrap',
+};
+
+const socialMediaStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  gap: '15px',
+};
+
+const socialLinkStyle = {
+  color: '#fff',
+  fontSize: '1.5rem',
+  textDecoration: 'none',
 };
