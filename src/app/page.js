@@ -2,24 +2,21 @@
 
 import { useState } from 'react';
 import 'animate.css';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
-
-  const handleMouseEnter = (index) => {
-    setHoveredIndex(index);
-  };
-
-  const handleMouseLeave = () => {
-    setHoveredIndex(null);
-  };
+  const router = useRouter();
 
   const logos = [
-    { src: '/images/py.png', alt: 'Tech Logo 1' },
-    { src: '/images/react.webp', alt: 'Tech Logo 2' },
-    { src: '/images/mongodb.avif', alt: 'Tech Logo 3' },
-    { src: '/images/aidev.webp', alt: 'Tech Logo 4' },
+    { src: '/images/py.png', alt: 'Python' },
+    { src: '/images/react.webp', alt: 'React' },
+    { src: '/images/mongodb.avif', alt: 'MongoDB' },
+    { src: '/images/aidev.webp', alt: 'AI Development' },
   ];
+
+  const handleMouseEnter = (index) => setHoveredIndex(index);
+  const handleMouseLeave = () => setHoveredIndex(null);
 
   return (
     <div style={containerStyle}>
@@ -29,12 +26,20 @@ export default function Home() {
         <p style={statusStyle}>Researcher & Developer</p>
 
         {/* Profile Image */}
-        <div className="animate__animated animate__zoomIn animate__delay-2s">
-          <img src="/images/name.jpg" alt="My Profile" style={profileImageStyle} />
+        <div className="animate__animated animate__zoomIn animate__delay-2s" style={imageWrapperStyle}>
+          <img src="/images/name.jpg" alt="Shivam Koli" style={profileImageStyle} />
         </div>
       </div>
 
-      {/* Technology Logos */}
+      {/* Founder Tagline */}
+      <div style={founderSectionStyle}>
+        <p style={founderTextStyle}>Founder of <strong>Shivumagic</strong></p>
+        <button onClick={() => router.push('https://shivumagic.netlify.app/')} style={buttonStyle}>
+          Visit Shivumagic
+        </button>
+      </div>
+
+      {/* Technologies Section */}
       <div className="animate__animated animate__fadeIn animate__delay-3s" style={techLogosStyle}>
         <h3>Technologies I Use</h3>
         <div style={logosContainerStyle}>
@@ -59,24 +64,22 @@ const containerStyle = {
   minHeight: '100vh',
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'center', // Centers content vertically
-  alignItems: 'center', // Centers content horizontally
-  background: 'url(/images/home.jpg) no-repeat center center/cover', // Add background image here
-  paddingTop: '50px', // Add margin from the top (header)
-  paddingBottom: '50px', // Add margin from the bottom (footer)
+  justifyContent: 'center',
+  alignItems: 'center',
+  background: 'url(/images/home.jpg) no-repeat center center/cover',
+  padding: '60px 20px',
   color: '#fff',
   fontFamily: 'Arial, sans-serif',
-  backgroundAttachment: 'fixed', // Keeps background fixed during scroll
+  backgroundAttachment: 'fixed',
 };
 
 const mainContentStyle = {
-  marginBottom: '40px',
+  marginBottom: '30px',
 };
 
 const headingStyle = {
   fontSize: '3rem',
   marginBottom: '10px',
-  animation: 'fadeIn 2s ease-out',
 };
 
 const statusStyle = {
@@ -84,11 +87,39 @@ const statusStyle = {
   color: '#ccc',
 };
 
-const profileImageStyle = {
-  width: '150px',
-  borderRadius: '50%',
+const imageWrapperStyle = {
+  display: 'flex',
+  justifyContent: 'center',
   marginTop: '20px',
-  animation: 'zoomIn 1s ease-out',
+};
+
+const profileImageStyle = {
+  width: '160px',
+  height: '160px',
+  borderRadius: '50%',
+  objectFit: 'cover',
+  border: '3px solid #fff',
+};
+
+const founderSectionStyle = {
+  marginTop: '30px',
+  textAlign: 'center',
+};
+
+const founderTextStyle = {
+  fontSize: '1.2rem',
+  marginBottom: '10px',
+};
+
+const buttonStyle = {
+  backgroundColor: '#16a7ff',
+  color: '#fff',
+  padding: '10px 20px',
+  fontSize: '1rem',
+  border: 'none',
+  borderRadius: '30px',
+  cursor: 'pointer',
+  transition: 'background-color 0.3s',
 };
 
 const techLogosStyle = {
@@ -98,6 +129,7 @@ const techLogosStyle = {
 const logosContainerStyle = {
   display: 'flex',
   justifyContent: 'center',
+  flexWrap: 'wrap',
   gap: '20px',
   marginTop: '20px',
 };
@@ -106,10 +138,10 @@ const logoStyle = {
   width: '60px',
   height: '60px',
   objectFit: 'contain',
-  transition: 'transform 0.3s ease, box-shadow 0.3s ease', // Add transition for smooth effect
+  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
 };
 
 const hoverStyle = {
-  transform: 'scale(1.2)', // Scale image on hover
-  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // Add shadow on hover
+  transform: 'scale(1.2)',
+  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
 };

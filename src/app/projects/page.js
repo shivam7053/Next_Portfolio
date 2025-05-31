@@ -47,6 +47,13 @@ export default function Projects() {
       imageUrl: '/images/projects/Port-React.png',
       link: 'https://shivamkoli-engg.netlify.app/'
     },
+    {
+      id: 7,
+      name: 'ShivuMagic',
+      description: 'Platform to give services to clients',
+      imageUrl: '/images/projects/shivumagic.png',
+      link: 'https://shivumagic.netlify.app/'
+    },
     // Add more projects as needed
   ];
 
